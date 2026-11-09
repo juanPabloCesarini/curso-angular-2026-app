@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
+import { MovieServiceService } from '../../services/movie-service.service';
 
 @Component({
   selector: 'app-movies-list',
@@ -9,5 +10,5 @@ import { HeaderComponent } from '../../components/header/header.component';
   styleUrl: './movies-list.component.css'
 })
 export class MoviesListComponent {
-
+  constructor(public movieService: MovieServiceService) {}
 }
