@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="container mt-4">
+  <h1>Alta Usuarios</h1>
+  
+  <!-- UN SOLO FORMULARIO PRINCIPAL -->
+  <form [formGroup]="userForm" (ngSubmit)="postUser()">
+        
+        <div class="mb-3">
+          <label for="user-id" class="form-label">ID</label>
+          <input type="text" id="user-id" class="form-control" formControlName="id" />
+        </div>
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre</label>
+          <input type="text" id="name" class="form-control" formControlName="name" />
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="text" id="email" class="form-control" formControlName="email" />
+        </div>
+
+        <!-- GRUPO ANIDADO: Se usa un div con formGroupName en lugar de otro <form> -->
+        <div formGroupName="address" class="border p-3 mb-3 rounded">
+          <h5 class="text-muted">Dirección</h5>
+          
+          <div class="mb-3">
+            <label for="street" class="form-label">Calle</label>
+            <input type="text" id="street" class="form-control" formControlName="street" />
+          </div>
+          
+          <div class="mb-3">
+            <label for="city" class="form-label">Ciudad</label>
+            <input type="text" id="city" class="form-control" formControlName="city" />
+          </div>
+        </div>
+        
+        <!-- Botón de envío con type="submit" -->
+        <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">
+          Crear Usuario
+        </button>
+
+  </form>
+</div>

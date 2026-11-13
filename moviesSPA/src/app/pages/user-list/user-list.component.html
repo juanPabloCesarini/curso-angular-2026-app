@@ -1,14 +1,21 @@
 <app-header></app-header>   
 <h1>Users</h1>
 
-<ul>
+<div class="container">
+
+
     @for(user of userService.users; track $index){
-        <li>
-            <a [routerLink]="['/user-detail', user.id]">
-              <h2>{{$index + 1}}</h2>
-                <h2>{{ user.name }}</h2>
-            </a>
-        </li>
+        <div class="card shadow-sm mb-3" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title">{{ user.name }}</h5>
+        <p class="card-text">Email: {{ user.email }}</p>
+        <p class="card-text">Address: {{ user.address.street }}, {{ user.address.city }}</p>
+      </div>
+      <div class="card-footer">
+        <a [routerLink]="['/user-detail', user.id]" class="btn btn-primary">View Details</a>
+        <button type="button" class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+      </div>
+    </div>
 
     }
-</ul>
+</div>
