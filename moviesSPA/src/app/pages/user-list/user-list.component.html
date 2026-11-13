@@ -1,0 +1,14 @@
+<app-header></app-header>   
+<h1>Users</h1>
+
+<ul>
+    @for(user of userService.users; track $index){
+        <li>
+            <a [routerLink]="['/user-detail', user.id]">
+              <h2>{{$index + 1}}</h2>
+                <h2>{{ user.name }}</h2>
+            </a>
+        </li>
+
+    }
+</ul>

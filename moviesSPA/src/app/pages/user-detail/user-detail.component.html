@@ -1,0 +1,13 @@
+<app-header></app-header>
+@if (selectedUser) {
+  <div class="user-detail">
+    <h2>User Details</h2>
+    <p><strong>Name:</strong> {{ selectedUser.name }}</p>
+    <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+    <p><strong>Username:</strong> {{ selectedUser.username }}</p>
+    <p><strong>Phone:</strong> {{ selectedUser.phone }}</p>
+    <p><strong>Website:</strong> {{ selectedUser.website }}</p>
+  </div>
+} @else {
+  <p>Please select a user to see the details.</p>
+}
